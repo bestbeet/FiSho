@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:fontFamily="cursive"
+            android:text="Water Quality"
+            android:textAlignment="center"
+            android:textSize="36sp"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/WtemptextView"
+            android:layout_marginLeft="21dp"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="27dp"
+            android:text="Turbidity ( UTF ) :"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/WtemptextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:textSize="24sp"
+            android:layout_below="@+id/textView4"
+            android:layout_alignLeft="@+id/textView7"
+            android:layout_alignStart="@+id/textView7" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView7"
+            android:layout_alignStart="@+id/textView7"
+            android:layout_below="@+id/textView7"
+            android:layout_marginTop="23dp"
+            android:text="Water Level :"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView10"
+            android:layout_alignStart="@+id/textView10"
+            android:layout_centerVertical="true"
+            android:text="pH :"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView8"
+            android:layout_alignStart="@+id/textView8"
+            android:layout_below="@+id/textView8"
+            android:layout_marginTop="23dp"
+            android:text="Oxygen "
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/textView9"
+            android:layout_alignRight="@+id/textView9"
+            android:layout_below="@+id/textView11"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="16dp"
+            android:text="Status : Normal"
+            android:textSize="24sp" />
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>

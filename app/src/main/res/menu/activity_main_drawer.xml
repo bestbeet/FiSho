@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_water"
+        android:icon="@drawable/aquarium"
+        android:title="Water Quality" />
+    <item
+        android:id="@+id/nav_pump"
+        android:icon="@drawable/pump"
+        android:title="Pump ON/OFF" />
+
+    <item android:title="Feed">
+        <menu >
+            <item
+                android:id="@+id/nav_time"
+                android:icon="@drawable/time"
+                android:title="Time Set" />
+            <item
+                android:id="@+id/nav_Intake"
+                android:icon="@drawable/food"
+                android:title="Food Level" />
+        </menu>
+    </item>
+
+    <item android:title="Autoset">
+        <menu>
+
+            <item
+                android:id="@+id/nav_atime"
+                android:icon="@drawable/foodfish"
+                android:title="Auto Feed" />
+            <item
+                android:id="@+id/nav_apump"
+                android:icon="@drawable/settings"
+                android:title="Auto Pump" />
+        </menu>
+    </item>
+    <item android:title="Item" >
+        <menu >
+            <item android:title="Setting" />
+            <item
+                android:id="@+id/nav_graph"
+                android:icon="@drawable/foodfish"
+                android:title="Graph" />
+            <item android:title="Update" />
+            <item android:title="Help" />
+        </menu>
+    </item>
+
+</menu>

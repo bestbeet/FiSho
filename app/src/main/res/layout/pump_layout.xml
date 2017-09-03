@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorBackgroundFloating">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="Pump"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/pump_layout"
+            android:textAlignment="center"
+            android:textSize="36sp"
+            android:layout_marginTop="32dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:id="@+id/btn_ledOn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Led On"
+            android:onClick="buttonClick"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/pump_layout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:id="@+id/btn_ledOff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Led Off"
+            android:onClick="buttonClick"
+            android:layout_below="@+id/btn_ledOn"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="9dp" />
+
+    </RelativeLayout>
+
+</LinearLayout>
