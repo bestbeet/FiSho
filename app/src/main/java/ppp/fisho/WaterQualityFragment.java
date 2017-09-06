@@ -42,23 +42,7 @@ public class WaterQualityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.waterquality_layout, container, false);
 
-        //
-        Intent resultIntent = new Intent(getActivity(), MainActivity.class);
-        PendingIntent resultPendingIntent = PendingIntent.getActivity(getActivity(), 0, resultIntent, 0);
-        // แจ้งเตือนแบบขึ้นให้เห็น
-        Builder = new NotificationCompat.Builder(getActivity())
-                .setSmallIcon(R.drawable.icon_small)
-                .setContentTitle("FiSho")
-                .setContentText("Water Quality")
-                .setAutoCancel(true)
-                .setContentIntent(resultPendingIntent)
-                .setVibrate(new long[] {Notification.DEFAULT_VIBRATE})
-                .setPriority(Notification.PRIORITY_MAX);
 
-// Gets an instance of the NotificationManager service
-        mNotifyMgr = (NotificationManager) getActivity().getSystemService(NOTIFICATION_SERVICE);
-// ตัวแสดงผล
-        mNotifyMgr.notify(notification_id, Builder.build());
 
 
         mFirebaseTextView1 = (TextView) view.findViewById(R.id.WtemptextView);
@@ -80,6 +64,31 @@ public class WaterQualityFragment extends Fragment {
                 Map map = (Map)dataSnapshot.getValue();
                 String value = String.valueOf(map.get("WaterTemp"));
                 mFirebaseTextView1.setText("Temperature : " + value + " C°");
+
+                if ( Float.parseFloat(value) >=  32 ){
+                    //
+                    Intent resultIntent = new Intent(getActivity(), MainActivity.class);
+                    PendingIntent resultPendingIntent = PendingIntent.getActivity(getActivity(), 0, resultIntent, 0);
+                    // แจ้งเตือนแบบขึ้นให้เห็น
+                    Builder = new NotificationCompat.Builder(getActivity())
+                            .setSmallIcon(R.drawable.icon_small)
+                            .setContentTitle("FiSho")
+                            .setContentText("High Temperature " + value)
+                            .setAutoCancel(true)
+                            .setContentIntent(resultPendingIntent)
+                            .setVibrate(new long[] {Notification.DEFAULT_VIBRATE})
+                            .setPriority(Notification.PRIORITY_MAX);
+
+// Gets an instance of the NotificationManager service
+                    mNotifyMgr = (NotificationManager) getActivity().getSystemService(NOTIFICATION_SERVICE);
+// ตัวแสดงผล
+                    mNotifyMgr.notify(notification_id, Builder.build());
+
+                }
+                else {
+                    mFirebaseTextView1.setText("Temperature : " + value + " C°");
+                }
+
 
             }
 
