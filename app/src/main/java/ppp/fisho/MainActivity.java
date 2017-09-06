@@ -57,6 +57,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         notificationManager.notify(notification_id,builder.build());
 
+        notificationManager.cancel(notification_id);
+
         //FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         /*fab.setOnClickListener(new View.OnClickListener() {
             @Override
