@@ -52,11 +52,11 @@ public class WaterQualityFragment extends Fragment {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         // TempWater
-        myRef1 = database.getReference();
+        myRef1 = database.getReference("WaterQuality");
         myRef1.keepSynced(true);
         myRef1.orderByValue().limitToLast(1);
         // pH
-        myRef2 = database.getReference();
+        myRef2 = database.getReference("WaterQuality");
         myRef2.keepSynced(true);
         myRef2.orderByValue().limitToLast(1);
 
@@ -64,14 +64,14 @@ public class WaterQualityFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Map map = (Map) dataSnapshot.getValue();
-                String value = String.valueOf(map.get("WaterTemp"));
+                String value = String.valueOf(map.get("Temp"));
                 mFirebaseTextView1.setText("Temperature : " + value + " C°");
 
                 if (Float.parseFloat(value) <= 32) {
-                    getActivity().startService(new Intent(getActivity(), Notification_Fertilization.class));
+                    getActivity().startService(new Intent(getActivity(), Notification_WaterQuality.class));
                 } else {
 
-                    getActivity().stopService(new Intent(getActivity(), Notification_Fertilization.class));
+                    getActivity().stopService(new Intent(getActivity(), Notification_WaterQuality.class));
                 }
 
 
@@ -101,12 +101,11 @@ public class WaterQualityFragment extends Fragment {
     }
 }
 
-class Notification_Fertilization extends Service {
+class Notification_WaterQuality extends Service {
 
-    public DatabaseReference myRef1, myRef2;
-    private TextView mFirebaseTextView1, mFirebaseTextView2;
+    public DatabaseReference myRef;
     private int notification_id = 001;
-    private NotificationCompat.Builder Builder;
+    private NotificationCompat.Builder mBuilder;
     private NotificationManager mNotifyMgr;
 
 
@@ -120,13 +119,13 @@ class Notification_Fertilization extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        myRef1 = database.getReference();
-        myRef1.keepSynced(true);
-        myRef1.orderByValue().limitToLast(1);
+        myRef = database.getReference("WaterQuality");
+        myRef.keepSynced(true);
+        myRef.orderByValue().limitToLast(1);
 
-        Intent resultIntent = new Intent(this, MainActivity.class);
+        Intent resultIntent = new Intent(this, WaterQualityFragment.class);
         PendingIntent resultPendingIntent = PendingIntent.getActivity(this, 0, resultIntent, 0);
-        Builder = new NotificationCompat.Builder(this)
+        mBuilder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.icon_small)
                 .setContentTitle("FiSho")
                 .setContentText("High Temperature")
@@ -139,14 +138,14 @@ class Notification_Fertilization extends Service {
         mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
 
-        myRef1.addValueEventListener(new ValueEventListener() {
+        myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Map map = (Map) dataSnapshot.getValue();
-                String value = String.valueOf(map.get("WaterTemp"));
+                String value = String.valueOf(map.get("Temp"));
                 //String notification = dataSnapshot.child("Notification").getValue(String.class);
                 if (Float.parseFloat(value) >= 32)
-                    mNotifyMgr.notify(notification_id, Builder.build());
+                    mNotifyMgr.notify(notification_id, mBuilder.build());
             }
 
             @Override
