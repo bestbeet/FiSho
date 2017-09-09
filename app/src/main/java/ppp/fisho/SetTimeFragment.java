@@ -4,6 +4,7 @@ package ppp.fisho;
  * Created by best on 8/4/2560.
  */
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -47,6 +48,7 @@ public class SetTimeFragment extends Fragment{
                         Toast.LENGTH_SHORT).show();
             }
         });
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         return view;
     }
