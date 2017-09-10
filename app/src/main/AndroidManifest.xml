@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
+
     <application
         android:hardwareAccelerated="false"
         android:largeHeap="true"
@@ -33,6 +34,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service
+            android:name=".Notification_ARFiSho"
+            android:enabled="true" />
+
+
+        <activity android:name=".THGraph" />
+        <activity android:name=".RLGraph" />
+        <activity android:name=".SHMonitor" />
+        <activity android:name=".FLFragment" />
+        <activity android:name=".statistic" />
+        <activity android:name=".AboutActivity"></activity>
+
     </application>
+
 
 </manifest>
