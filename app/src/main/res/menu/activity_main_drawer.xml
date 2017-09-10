@@ -36,8 +36,5 @@
 
         </menu>
     </item>
-    <item android:title="Setting" />
-    <item android:title="Update" />
-    <item android:title="Help" />
 
 </menu>
