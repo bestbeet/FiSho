@@ -1,6 +1,5 @@
 package ppp.fisho;
 
-
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -13,11 +12,13 @@ import android.util.Log;
 
 import com.google.firebase.database.DatabaseReference;
 
+import static android.content.Context.NOTIFICATION_SERVICE;
+
 /**
- * Created by best on 10/9/2560.
+ * Created by best on 11/9/2560.
  */
 
-public class Notification_ARFiSho extends Service {
+public class Notification_ARpHHigh extends Service {
     private DatabaseReference myRef;
     private int notification_id;
     private NotificationCompat.Builder builder;
@@ -25,7 +26,7 @@ public class Notification_ARFiSho extends Service {
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        Log.e("MyActivity", "In the FirstPlant service");
+        Log.e("MyActivity", "In the FiSho service");
         return null;
     }
 
@@ -42,7 +43,7 @@ public class Notification_ARFiSho extends Service {
         builder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.icon_small)
                 .setContentTitle("FiSho Quality")
-                .setContentText("Water High Temperatur")
+                .setContentText("High hardness")
                 .setAutoCancel(true)
                 .setContentIntent(pendingIntent)
                 .setVibrate(new long[]{Notification.DEFAULT_VIBRATE})

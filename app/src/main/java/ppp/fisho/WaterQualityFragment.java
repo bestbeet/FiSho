@@ -38,9 +38,9 @@ public class WaterQualityFragment extends Fragment {
 
     private DatabaseReference myRef1, myRef2;
     private TextView mFirebaseTextView1, mFirebaseTextView2;
-        private int notification_id = 001;
-        private NotificationCompat.Builder Builder;
-        private NotificationManager mNotifyMgr;
+    private int notification_id = 001;
+    private NotificationCompat.Builder Builder;
+    private NotificationManager mNotifyMgr;
 
 
     @Nullable
@@ -56,10 +56,6 @@ public class WaterQualityFragment extends Fragment {
         myRef1 = database.getReference("WaterQuality");
         myRef1.keepSynced(true);
         myRef1.orderByValue().limitToLast(1);
-
-
-
-
         /*Intent resultIntent = new Intent(getActivity(), MainActivity.class);
         PendingIntent resultPendingIntent = PendingIntent.getActivity(getActivity(), 0, resultIntent, 0);
         Builder = new NotificationCompat.Builder(getActivity())
@@ -79,15 +75,25 @@ public class WaterQualityFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Map map = (Map) dataSnapshot.getValue();
-                String value = String.valueOf(map.get("Temp"));
-                String valuePH = String.valueOf(map.get("pH"));
-                mFirebaseTextView2.setText("pH : " + value);
-                mFirebaseTextView1.setText("Temperature : " + value + " C°");
-
-                if (Integer.parseInt(value) >= 32) {
-                    getActivity().startService(new Intent(getActivity(), Notification_ARFiSho.class));
+                String valueWt = String.valueOf(map.get("Temp"));
+                String valuepH = String.valueOf(map.get("pH"));
+                mFirebaseTextView2.setText("pH : " + valuepH);
+                mFirebaseTextView1.setText("Temperature : " + valueWt + " C°");
+// รอแก้ ให้ผู้ใช้ set ค่า
+                if (Float.parseFloat(valueWt) >= 32) {
+                    getActivity().startService(new Intent(getActivity(), Notification_ARWaterTemp.class));
                 } else {
-                    getActivity().stopService(new Intent(getActivity(), Notification_ARFiSho.class));
+                    getActivity().stopService(new Intent(getActivity(), Notification_ARWaterTemp.class));
+                }
+                if (Float.parseFloat(valuepH) >= 9) {
+                    getActivity().startService(new Intent(getActivity(), Notification_ARpHHigh.class));
+                } else {
+                    getActivity().stopService(new Intent(getActivity(), Notification_ARpHHigh.class));
+                }
+                if (Float.parseFloat(valueWt) <= 4) {
+                    getActivity().startService(new Intent(getActivity(), Notification_ARpHLow.class));
+                } else {
+                    getActivity().stopService(new Intent(getActivity(), Notification_ARpHLow.class));
                 }
             }
 

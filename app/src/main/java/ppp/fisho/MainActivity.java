@@ -1,6 +1,7 @@
 package ppp.fisho;
 
 
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -45,20 +46,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         builder = new NotificationCompat.Builder(this);
-        remoteViews = new RemoteViews(getPackageName(),R.layout.custom_notification);
-        remoteViews.setImageViewResource(R.id.notif_icon,R.drawable.icon_small);
-        remoteViews.setTextViewText(R.id.notif_title,"Welcome to FiSho");
+
         notification_id = (int) System.currentTimeMillis();
-        Intent notification_intent = new Intent(context,MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context,0,notification_intent,0);
+
+        Intent notification_intent = new Intent(this, MainActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notification_intent, 0);
 
         builder.setSmallIcon(R.drawable.icon_small)
                 .setAutoCancel(true)
-                .setCustomBigContentView(remoteViews)
-                .setContentIntent(pendingIntent);
+                .setContentTitle("Welcome")
+                .setContentText("FiSho App")
+                .setContentIntent(pendingIntent)
+                .setVibrate(new long[]{Notification.DEFAULT_VIBRATE})
+                .setPriority(Notification.PRIORITY_MAX);
 
         notificationManager.notify(notification_id,builder.build());
-
         notificationManager.cancel(notification_id);
 
         //FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -114,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent settings = new Intent(this, SettingsActivity.class);
             startActivity(settings);
             return true;
-        }else if (id == R.id.action_abouts) {
+        } else if (id == R.id.action_abouts) {
             fragment = new AboutActivity();
 
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -123,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             drawer.closeDrawer(GravityCompat.START);
             return true;
-        }else if (id == R.id.action_exit) {
+        } else if (id == R.id.action_exit) {
             finish();
             System.exit(0);
             return true;
@@ -144,15 +146,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragment = new WaterQualityFragment();
         } else if (id == R.id.nav_pump) {
             fragment = new PumpFragment();
-        }else if (id == R.id.nav_time) {
+        } else if (id == R.id.nav_time) {
             fragment = new SetTimeFragment();
-        }else if (id == R.id.nav_Intake) {
+        } else if (id == R.id.nav_Intake) {
             fragment = new FoodIntakeFragment();
         } else if (id == R.id.nav_apump) {
             fragment = new AutoPumpFragment();
         } else if (id == R.id.nav_atime) {
             fragment = new AutoFoodFragment();
-        }else if (id == R.id.nav_graph) {
+        } else if (id == R.id.nav_graph) {
             fragment = new THGraph();
         }
 
