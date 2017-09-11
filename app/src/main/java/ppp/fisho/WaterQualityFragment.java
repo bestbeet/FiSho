@@ -78,8 +78,9 @@ public class WaterQualityFragment extends Fragment {
                 Map map = (Map) dataSnapshot.getValue();
                 String valueWt = String.valueOf(map.get("Temp"));
                 String valuepH = String.valueOf(map.get("pH"));
-                mFirebaseTextView2.setText("pH : " + valuepH);
+
                 mFirebaseTextView1.setText("Temperature : " + valueWt + " C°");
+                mFirebaseTextView2.setText("pH : " + valuepH);
 // รอแก้ ให้ผู้ใช้ set ค่า
                 if (Float.parseFloat(valueWt) >= 32) {
                     getActivity().startService(new Intent(getActivity(), Notification_ARWaterTemp.class));

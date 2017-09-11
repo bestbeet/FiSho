@@ -6,4 +6,159 @@
     android:orientation="vertical">
 
 
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="125dp"
+        android:text="Set"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:fontFamily="cursive"
+        android:text="Quality Set"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Temp Set :"
+        android:textSize="20sp"
+        android:layout_below="@+id/textView8"
+        android:layout_toLeftOf="@+id/textView8"
+        android:layout_toStartOf="@+id/textView8" />
+
+    <EditText
+        android:id="@+id/TempMax"
+        android:layout_width="65dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView9"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="MAX"
+        android:inputType="numberDecimal"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/TempMin"
+        android:layout_width="65dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/TempMax"
+        android:layout_alignBottom="@+id/TempMax"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp"
+        android:layout_toEndOf="@+id/TempMax"
+        android:layout_toRightOf="@+id/TempMax"
+        android:ems="10"
+        android:hint="MIN"
+        android:inputType="numberDecimal"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView9"
+        android:layout_alignStart="@+id/textView9"
+        android:layout_below="@+id/TempMax"
+        android:layout_marginTop="29dp"
+        android:text="pH Set :"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/pHMax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/TempMax"
+        android:layout_alignLeft="@+id/TempMax"
+        android:layout_alignRight="@+id/TempMax"
+        android:layout_alignStart="@+id/TempMax"
+        android:layout_alignTop="@+id/textView13"
+        android:ems="10"
+        android:hint="MAX"
+        android:inputType="numberSigned"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/pHMin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/TempMin"
+        android:layout_alignLeft="@+id/TempMin"
+        android:layout_alignRight="@+id/TempMin"
+        android:layout_alignStart="@+id/TempMin"
+        android:layout_alignTop="@+id/pHMax"
+        android:ems="10"
+        android:hint="MIN"
+        android:inputType="numberSigned"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/ASetBQ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="49dp"
+        android:text="Auto Set" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView13"
+        android:layout_alignStart="@+id/textView13"
+        android:layout_below="@+id/pHMax"
+        android:layout_marginTop="22dp"
+        android:text="Turbidity Set :"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/editText7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/pHMax"
+        android:layout_alignLeft="@+id/pHMax"
+        android:layout_alignRight="@+id/pHMax"
+        android:layout_alignStart="@+id/pHMax"
+        android:layout_alignTop="@+id/textView14"
+        android:ems="10"
+        android:hint="MAX"
+        android:inputType="numberSigned"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/editText8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editText7"
+        android:layout_alignBottom="@+id/editText7"
+        android:layout_alignEnd="@+id/pHMin"
+        android:layout_alignLeft="@+id/pHMin"
+        android:layout_alignRight="@+id/pHMin"
+        android:layout_alignStart="@+id/pHMin"
+        android:ems="10"
+        android:hint="MIN"
+        android:inputType="numberSigned"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
 </RelativeLayout>

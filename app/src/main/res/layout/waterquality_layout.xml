@@ -34,6 +34,18 @@
                 android:layout_alignStart="@+id/textView7"
                 android:layout_below="@+id/textView4"
                 android:layout_marginTop="26dp"
+                android:text="Temperature : Loading..."
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/pHtextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/WtemptextView"
+                android:layout_alignStart="@+id/WtemptextView"
+                android:layout_below="@+id/WtemptextView"
+                android:layout_marginTop="17dp"
+                android:text="pH : Loading..."
                 android:textSize="24sp" />
 
             <TextView
@@ -56,16 +68,6 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="20dp"
                 android:text="Turbidity ( UTF ) :"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/pHtextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/WtemptextView"
-                android:layout_alignStart="@+id/WtemptextView"
-                android:layout_below="@+id/WtemptextView"
-                android:layout_marginTop="17dp"
                 android:textSize="24sp" />
 
             <TextView
