@@ -6,6 +6,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.location.SettingInjectorService;
 import android.net.Uri;
 import android.os.Bundle;
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         builder = new NotificationCompat.Builder(this);
 
@@ -60,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 .setVibrate(new long[]{Notification.DEFAULT_VIBRATE})
                 .setPriority(Notification.PRIORITY_MAX);
 
-        notificationManager.notify(notification_id,builder.build());
+        notificationManager.notify(notification_id, builder.build());
         notificationManager.cancel(notification_id);
 
         //FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -132,6 +134,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         return super.onOptionsItemSelected(item);
+
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -144,6 +147,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_water) {
             fragment = new WaterQualityFragment();
+        } else if (id == R.id.nav_qualityset) {
+            fragment = new QualitySet();
         } else if (id == R.id.nav_pump) {
             fragment = new PumpFragment();
         } else if (id == R.id.nav_time) {
@@ -163,6 +168,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
 
         return true;
     }

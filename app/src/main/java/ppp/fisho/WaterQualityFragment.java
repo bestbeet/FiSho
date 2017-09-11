@@ -47,7 +47,8 @@ public class WaterQualityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.waterquality_layout, container, false);
-        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        getActivity().setTitle("Water Quality");
+        //getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         mFirebaseTextView1 = (TextView) view.findViewById(R.id.WtemptextView);
         mFirebaseTextView2 = (TextView) view.findViewById(R.id.pHtextView);
 
@@ -103,8 +104,8 @@ public class WaterQualityFragment extends Fragment {
             }
         });
 
+
         return view;
-        //return inflater.inflate(R.layout.waterquality_layout,null);
     }
 }
 /*

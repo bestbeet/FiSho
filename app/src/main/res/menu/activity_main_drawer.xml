@@ -9,6 +9,10 @@
                 android:icon="@drawable/aquarium"
                 android:title="Water Quality" />
             <item
+                android:id="@+id/nav_qualityset"
+                android:icon="@drawable/aquarium"
+                android:title="Quality Set" />
+            <item
                 android:id="@+id/nav_Intake"
                 android:icon="@drawable/food"
                 android:title="Food Level" />

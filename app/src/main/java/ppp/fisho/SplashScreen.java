@@ -15,6 +15,7 @@ import java.io.InputStream;
 
 public class SplashScreen extends AppCompatActivity{
     private GifImageView gifImageView;
+    private static int SPLASH_TIME_OUT = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -40,7 +41,7 @@ public class SplashScreen extends AppCompatActivity{
                 SplashScreen.this.startActivity(new Intent(SplashScreen.this,MainActivity.class));
                 SplashScreen.this.finish();
             }
-        },8500);
+        },SPLASH_TIME_OUT);
 
     }
 

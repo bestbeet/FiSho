@@ -30,8 +30,6 @@ import java.net.URISyntaxException;
 
 public class PumpFragment extends Fragment {
     @Nullable
-
-    private Button ledOn, ledOff;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.pump_layout,container, false);

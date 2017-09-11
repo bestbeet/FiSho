@@ -25,7 +25,7 @@ public class THGraph extends Fragment {
         View view = inflater.inflate(R.layout.thgraph_layout, container , false);
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.graph);
         getActivity().setTitle("Statistics");
-        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        //getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         //imageView = (ImageView) view.findViewById(R.id.imageStat);
         //Picasso.with(getActivity()).load(url).into(imageView);
         webView = (WebView) view.findViewById(R.id.webView);

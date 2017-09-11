@@ -9,18 +9,25 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by best on 5/4/2560.
+ * Created by best on 12/9/2560.
  */
 
-public class AutoPumpFragment extends Fragment {
+public class QualitySet extends Fragment {
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        View view = inflater.inflate(R.layout.qualityset_layout,container, false);
+        getActivity().setTitle("Quality Set");
+
+
+
+
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        View view = inflater.inflate(R.layout.autopump_layout, null);
 
 
 
-        return view;
+
+
+        return  view;
     }
 }
