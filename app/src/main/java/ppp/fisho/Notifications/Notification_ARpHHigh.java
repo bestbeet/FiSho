@@ -1,4 +1,4 @@
-package ppp.fisho;
+package ppp.fisho.Notifications;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -12,11 +12,16 @@ import android.util.Log;
 
 import com.google.firebase.database.DatabaseReference;
 
+import ppp.fisho.MainActivity;
+import ppp.fisho.R;
+
+import static android.content.Context.NOTIFICATION_SERVICE;
+
 /**
  * Created by best on 11/9/2560.
  */
 
-public class Notification_ARpHLow extends Service {
+public class Notification_ARpHHigh extends Service {
     private DatabaseReference myRef;
     private int notification_id;
     private NotificationCompat.Builder builder;
@@ -41,7 +46,7 @@ public class Notification_ARpHLow extends Service {
         builder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.icon_small)
                 .setContentTitle("FiSho Quality")
-                .setContentText("Low hardness")
+                .setContentText("High hardness")
                 .setAutoCancel(true)
                 .setContentIntent(pendingIntent)
                 .setVibrate(new long[]{Notification.DEFAULT_VIBRATE})

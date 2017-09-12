@@ -6,17 +6,11 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.location.SettingInjectorService;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.NotificationCompat;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -149,16 +143,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragment = new WaterQualityFragment();
         } else if (id == R.id.nav_qualityset) {
             fragment = new QualitySet();
-        } else if (id == R.id.nav_pump) {
-            fragment = new PumpFragment();
-        } else if (id == R.id.nav_time) {
-            fragment = new SetTimeFragment();
         } else if (id == R.id.nav_Intake) {
-            fragment = new FoodIntakeFragment();
-        } else if (id == R.id.nav_apump) {
-            fragment = new AutoPumpFragment();
-        } else if (id == R.id.nav_atime) {
-            fragment = new AutoFoodFragment();
+            fragment = new FoodLevelFragment();
+        } else if (id == R.id.nav_feedtime) {
+            fragment = new FeedTimeFragment();
+        } else if (id == R.id.nav_tank) {
+            fragment = new TankFragment();
+        } else if (id == R.id.nav_tankset) {
+            fragment = new TankSetFragment();
         } else if (id == R.id.nav_graph) {
             fragment = new THGraph();
         }

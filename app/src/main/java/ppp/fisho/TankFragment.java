@@ -28,12 +28,16 @@ import java.net.URISyntaxException;
  * Created by best on 29/3/2560.
  */
 
-public class PumpFragment extends Fragment {
+public class TankFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.pump_layout,container, false);
+        View view = inflater.inflate(R.layout.tank_layout,container, false);
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        getActivity().setTitle("Tank");
+
+
+
         return  view;
     }
 

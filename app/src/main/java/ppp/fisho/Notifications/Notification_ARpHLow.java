@@ -1,5 +1,4 @@
-package ppp.fisho;
-
+package ppp.fisho.Notifications;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -13,11 +12,14 @@ import android.util.Log;
 
 import com.google.firebase.database.DatabaseReference;
 
+import ppp.fisho.MainActivity;
+import ppp.fisho.R;
+
 /**
- * Created by best on 10/9/2560.
+ * Created by best on 11/9/2560.
  */
 
-public class Notification_ARWaterTemp extends Service {
+public class Notification_ARpHLow extends Service {
     private DatabaseReference myRef;
     private int notification_id;
     private NotificationCompat.Builder builder;
@@ -42,7 +44,7 @@ public class Notification_ARWaterTemp extends Service {
         builder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.icon_small)
                 .setContentTitle("FiSho Quality")
-                .setContentText("Water High Temperatur")
+                .setContentText("Low hardness")
                 .setAutoCancel(true)
                 .setContentIntent(pendingIntent)
                 .setVibrate(new long[]{Notification.DEFAULT_VIBRATE})

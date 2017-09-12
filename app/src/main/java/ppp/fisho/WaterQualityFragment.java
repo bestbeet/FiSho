@@ -1,14 +1,8 @@
 package ppp.fisho;
 
-import android.app.Notification;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.app.Service;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.os.IBinder;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
@@ -24,11 +18,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
-import java.security.cert.Extension;
 import java.util.Map;
-import java.util.HashMap;
 
-import static android.content.Context.NOTIFICATION_SERVICE;
+import ppp.fisho.Notifications.Notification_ARWaterTemp;
+import ppp.fisho.Notifications.Notification_ARpHHigh;
+import ppp.fisho.Notifications.Notification_ARpHLow;
 
 /**
  * Created by best on 29/3/2560.

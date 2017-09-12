@@ -9,18 +9,21 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by best on 4/4/2560.
+ * Created by best on 5/4/2560.
  */
 
-public class OxygenFragment extends Fragment {
-@Nullable
-@Override
+public class FeedTimeFragment extends Fragment {
+    @Nullable
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        View view = inflater.inflate(R.layout.fragment_feed_time,container,false);
+        getActivity().setTitle("Feed Time");
 
 
 
 
-    getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        return inflater.inflate(R.layout.oxygen_layout,null);
-        }
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+        return view;
+    }
 }

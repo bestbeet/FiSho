@@ -12,12 +12,21 @@ import android.view.ViewGroup;
  * Created by best on 5/4/2560.
  */
 
-public class FoodIntakeFragment extends Fragment {
+public class FoodLevelFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-
+        View view = inflater.inflate(R.layout.foodintake_layout,container,false);
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        return inflater.inflate(R.layout.foodintake_layout,null);
+        getActivity().setTitle("Food Level");
+
+
+
+
+
+
+
+
+        return view;
     }
 }

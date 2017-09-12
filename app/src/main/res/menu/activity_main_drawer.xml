@@ -17,22 +17,17 @@
                 android:icon="@drawable/food"
                 android:title="Food Level" />
             <item
-                android:id="@+id/nav_pump"
-                android:icon="@drawable/pump"
-                android:title="Pump Set" />
-            <item
-                android:id="@+id/nav_time"
-                android:icon="@drawable/time"
-                android:title="Time Set" />
-            <item
-                android:id="@+id/nav_apump"
-                android:icon="@drawable/settings"
-                android:title="Auto Set" />
-            <item
-                android:id="@+id/nav_atime"
+                android:id="@+id/nav_feedtime"
                 android:icon="@drawable/foodfish"
-                android:title="Auto Feed" />
-
+                android:title="Feed Time" />
+            <item
+                android:id="@+id/nav_tank"
+                android:icon="@drawable/time"
+                android:title="Tank" />
+            <item
+                android:id="@+id/nav_tankset"
+                android:icon="@drawable/settings"
+                android:title="Tank Set" />
             <item
                 android:id="@+id/nav_graph"
                 android:icon="@drawable/graph"

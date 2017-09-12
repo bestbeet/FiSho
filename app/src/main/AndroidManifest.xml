@@ -35,13 +35,13 @@
         </activity>
 
         <service
-            android:name=".Notification_ARWaterTemp"
+            android:name=".Notifications.Notification_ARWaterTemp"
             android:enabled="true" />
         <service
-            android:name=".Notification_ARpHHigh"
+            android:name=".Notifications.Notification_ARpHHigh"
             android:enabled="true" />
         <service
-            android:name=".Notification_ARpHLow"
+            android:name=".Notifications.Notification_ARpHLow"
             android:enabled="true" />
 
         <activity android:name=".THGraph" />

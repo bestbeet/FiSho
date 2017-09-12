@@ -9,20 +9,21 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by best on 5/4/2560.
+ * Created by best on 4/4/2560.
  */
 
-public class AutoFoodFragment extends Fragment {
-    @Nullable
-    @Override
+public class TankSetFragment extends Fragment {
+@Nullable
+@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.autofood_layout,container,false);
+    View view = inflater.inflate(R.layout.tankset_layout,container,false);
+
+    getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    getActivity().setTitle("Tank Set");
 
 
 
 
-        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
-        return view;
-    }
+        return  view;
+        }
 }
