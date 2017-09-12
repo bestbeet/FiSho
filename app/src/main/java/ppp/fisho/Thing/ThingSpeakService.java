@@ -7,11 +7,11 @@ package ppp.fisho.Thing;
 import java.util.List;
 import java.util.Map;
 
-import ppp.fisho.model.Channel;
-import ppp.fisho.model.ChannelFeed;
-import ppp.fisho.model.Feed;
-import ppp.fisho.model.PublicChannels;
-import ppp.fisho.model.StatusUpdates;
+import ppp.fisho.Model.Channel;
+import ppp.fisho.Model.ChannelFeed;
+import ppp.fisho.Model.Feed;
+import ppp.fisho.Model.PublicChannels;
+import ppp.fisho.Model.StatusUpdates;
 import retrofit.Callback;
 import retrofit.http.GET;
 import retrofit.http.Path;

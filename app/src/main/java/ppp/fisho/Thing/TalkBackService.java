@@ -6,7 +6,7 @@ package ppp.fisho.Thing;
 
 import java.util.List;
 
-import ppp.fisho.model.TalkBackCommand;
+import ppp.fisho.Model.TalkBackCommand;
 import retrofit.Callback;
 import retrofit.http.DELETE;
 import retrofit.http.GET;

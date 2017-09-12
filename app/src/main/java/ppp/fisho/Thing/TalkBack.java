@@ -11,7 +11,7 @@ import com.google.gson.GsonBuilder;
 
 import java.util.List;
 
-import ppp.fisho.model.TalkBackCommand;
+import ppp.fisho.Model.TalkBackCommand;
 import retrofit.Callback;
 import retrofit.RestAdapter;
 import retrofit.RetrofitError;

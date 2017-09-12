@@ -18,8 +18,8 @@ import lecho.lib.hellocharts.model.LineChartData;
 import lecho.lib.hellocharts.model.PointValue;
 import lecho.lib.hellocharts.model.Viewport;
 import lecho.lib.hellocharts.util.ChartUtils;
-import ppp.fisho.model.ChannelFeed;
-import ppp.fisho.model.Feed;
+import ppp.fisho.Model.ChannelFeed;
+import ppp.fisho.Model.Feed;
 
 /***
  * Representation of a field chart in a ThingSpeak Channel using the HelloCharts for Android library.

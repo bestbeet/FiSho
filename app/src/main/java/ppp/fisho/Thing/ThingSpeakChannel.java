@@ -14,9 +14,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import ppp.fisho.model.ChannelFeed;
-import ppp.fisho.model.Feed;
-import ppp.fisho.model.StatusUpdates;
+import ppp.fisho.Model.ChannelFeed;
+import ppp.fisho.Model.Feed;
+import ppp.fisho.Model.StatusUpdates;
 import retrofit.Callback;
 import retrofit.RestAdapter;
 import retrofit.RetrofitError;

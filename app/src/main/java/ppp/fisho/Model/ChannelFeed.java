@@ -1,4 +1,4 @@
-package ppp.fisho.model;
+package ppp.fisho.Model;
 
 /**
  * Created by waron on 4/4/2560.

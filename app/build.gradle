@@ -41,8 +41,11 @@ dependencies {
     compile 'com.google.firebase:firebase-database:10.0.1'
     compile 'com.google.firebase:firebase-messaging:10.0.1'
     compile 'com.jakewharton:butterknife:8.8.1'
+    compile 'com.macroyau:thingspeakandroid:0.2.0'
+    compile 'com.mcxiaoke.volley:library:1.0.18'
     compile 'org.adw.library:discrete-seekbar:1.0.1'
     compile 'com.android.support:support-vector-drawable:25.3.1'
+
     testCompile 'junit:junit:4.12'
 }
 

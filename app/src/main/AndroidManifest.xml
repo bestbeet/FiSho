@@ -43,6 +43,9 @@
         <service
             android:name=".Notifications.Notification_ARpHLow"
             android:enabled="true" />
+        <service
+            android:name=".Service.Update"
+            android:enabled="true" />
 
         <activity android:name=".THGraph" />
         <activity android:name=".RLGraph" />

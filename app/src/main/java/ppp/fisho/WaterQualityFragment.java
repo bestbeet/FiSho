@@ -51,21 +51,6 @@ public class WaterQualityFragment extends Fragment {
         myRef1 = database.getReference("WaterQuality");
         myRef1.keepSynced(true);
         myRef1.orderByValue().limitToLast(1);
-        /*Intent resultIntent = new Intent(getActivity(), MainActivity.class);
-        PendingIntent resultPendingIntent = PendingIntent.getActivity(getActivity(), 0, resultIntent, 0);
-        Builder = new NotificationCompat.Builder(getActivity())
-                .setSmallIcon(R.drawable.icon_small)
-                .setContentTitle("FiSho")
-                .setContentText("High Temperature")
-                .setAutoCancel(true)
-                .setContentIntent(resultPendingIntent)
-                .setVibrate(new long[]{Notification.DEFAULT_VIBRATE})
-                .setPriority(Notification.PRIORITY_MAX);
-
-        mNotifyMgr = (NotificationManager) getActivity().getSystemService(NOTIFICATION_SERVICE);
-        mNotifyMgr.notify(notification_id, Builder.build());*/
-
-
         myRef1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
