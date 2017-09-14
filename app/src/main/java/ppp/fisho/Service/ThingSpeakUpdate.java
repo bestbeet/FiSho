@@ -22,10 +22,10 @@ import org.json.JSONObject;
 import java.util.Map;
 
 /**
- * Created by best on 13/9/2560.
+ * Created by best on 15/9/2560.
  */
 
-public class Update extends Service {
+public class ThingSpeakUpdate extends Service {
     private RequestQueue requestQueue;
     private DatabaseReference myRef;
 
@@ -40,7 +40,7 @@ public class Update extends Service {
         requestQueue = Volley.newRequestQueue(this);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("Irrigation");
+        myRef = database.getReference("WaterQuality");
         myRef.keepSynced(true);
         myRef.orderByValue().limitToLast(1);
 
@@ -48,9 +48,10 @@ public class Update extends Service {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Map map = (Map) dataSnapshot.getValue();
-                String value = "0";
-                value = String.valueOf(map.get("Time"));
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, "https://api.thingspeak.com/update?api_key=XYX36NKMGSDO68KK&field2=" + value,
+                String valueTemp = "0";
+                valueTemp = String.valueOf(map.get("Temp"));
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, "https://api.thingspeak.com/update?api_key=W986B2XBZA8GEZFQ&field2=" + valueTemp,
+
                         new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {

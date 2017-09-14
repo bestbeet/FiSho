@@ -27,7 +27,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
+            android:label="FiSho"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -45,6 +45,9 @@
             android:enabled="true" />
         <service
             android:name=".Service.Update"
+            android:enabled="true" />
+        <service
+            android:name=".Service.ThingSpeakUpdate"
             android:enabled="true" />
 
         <activity android:name=".THGraph" />

@@ -14,12 +14,15 @@ import android.support.v4.app.NotificationCompat;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.RemoteViews;
+
+import ppp.fisho.Service.ThingSpeakUpdate;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -40,6 +43,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setSupportActionBar(toolbar);
 
 
+
+
         notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         builder = new NotificationCompat.Builder(this);
 
@@ -58,15 +63,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         notificationManager.notify(notification_id, builder.build());
         notificationManager.cancel(notification_id);
-
-        //FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        /*fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
+        stopService(new Intent(this, ThingSpeakUpdate.class));
+        startService(new Intent(this, ThingSpeakUpdate.class));
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -88,6 +86,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             super.onBackPressed();
         }
+
     }
 
     @Override
@@ -127,6 +126,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             return true;
         }
 
+
         return super.onOptionsItemSelected(item);
 
     }
@@ -154,6 +154,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_graph) {
             fragment = new THGraph();
         }
+
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.mainFrame, fragment).addToBackStack(null).commit();
