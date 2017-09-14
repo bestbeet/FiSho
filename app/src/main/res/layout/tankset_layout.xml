@@ -12,33 +12,33 @@
             android:id="@+id/button12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ON"
             android:layout_alignBaseline="@+id/textView11"
             android:layout_alignBottom="@+id/textView11"
             android:layout_alignLeft="@+id/button"
-            android:layout_alignStart="@+id/button" />
+            android:layout_alignStart="@+id/button"
+            android:text="ON" />
 
         <Button
             android:id="@+id/button13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="OFF"
             android:layout_alignBaseline="@+id/button12"
             android:layout_alignBottom="@+id/button12"
             android:layout_alignLeft="@+id/button2"
-            android:layout_alignStart="@+id/button2" />
+            android:layout_alignStart="@+id/button2"
+            android:text="OFF" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="58dp"
-            android:text="Tank Set"
+            android:layout_marginTop="40dp"
+            android:text="Pond Setting"
             android:textAlignment="center"
-            android:textSize="36sp" />
+            android:textSize="36sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <TextView
             android:id="@+id/textView11"
@@ -70,10 +70,10 @@
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/button"
             android:layout_alignBottom="@+id/button"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginEnd="22dp"
-            android:layout_marginRight="22dp"
+            android:layout_marginLeft="22dp"
+            android:layout_marginStart="22dp"
+            android:layout_toEndOf="@+id/button"
+            android:layout_toRightOf="@+id/button"
             android:text="OFF" />
 
         <Button
@@ -96,6 +96,16 @@
             android:text="Oxygen"
             android:textSize="18sp" />
 
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/button2"
+            android:layout_alignStart="@+id/button2"
+            android:layout_alignTop="@+id/editText"
+            android:text="Setting"
+            android:textAlignment="center" />
+
         <EditText
             android:id="@+id/editText"
             android:layout_width="wrap_content"
@@ -113,18 +123,6 @@
             android:textAlignment="center" />
 
         <Button
-            android:id="@+id/button9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/editText"
-            android:layout_alignEnd="@+id/button2"
-            android:layout_alignLeft="@+id/button2"
-            android:layout_alignRight="@+id/button2"
-            android:layout_alignStart="@+id/button2"
-            android:text="Set"
-            android:textAlignment="center" />
-
-        <Button
             android:id="@+id/button10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -134,7 +132,7 @@
             android:layout_alignParentStart="true"
             android:layout_below="@+id/editText"
             android:layout_marginTop="57dp"
-            android:text="Auto Set" />
+            android:text="Auto Setting" />
 
     </RelativeLayout>
 

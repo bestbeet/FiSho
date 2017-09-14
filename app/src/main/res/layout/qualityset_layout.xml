@@ -6,6 +6,16 @@
     android:orientation="vertical">
 
 
+    <Button
+        android:id="@+id/SetBQ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ASetBQ"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="12dp"
+        android:text="Manual Setting" />
+
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
@@ -14,7 +24,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:fontFamily="cursive"
-        android:text="Quality Set"
+        android:text="Quality Setting"
         android:textAlignment="center"
         android:textSize="36sp"
         android:textStyle="normal|bold" />
@@ -23,24 +33,29 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="Temp Set :"
+        android:layout_marginTop="45dp"
+        android:text="Temp (°C) :"
         android:textSize="20sp"
+        android:layout_marginLeft="19dp"
+        android:layout_marginStart="19dp"
         android:layout_below="@+id/textView8"
-        android:layout_toLeftOf="@+id/textView8"
-        android:layout_toStartOf="@+id/textView8" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/TempMax"
         android:layout_width="65dp"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView9"
-        android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="MAX"
         android:inputType="numberDecimal"
         android:textAlignment="center"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:layout_alignTop="@+id/textView9"
+        android:layout_toRightOf="@+id/textView14"
+        android:layout_toEndOf="@+id/textView14"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp" />
 
     <EditText
         android:id="@+id/TempMin"
@@ -62,12 +77,12 @@
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView9"
-        android:layout_alignStart="@+id/textView9"
+        android:text="pH :"
+        android:textSize="20sp"
+        android:layout_marginTop="19dp"
         android:layout_below="@+id/TempMax"
-        android:layout_marginTop="29dp"
-        android:text="pH Set :"
-        android:textSize="20sp" />
+        android:layout_alignLeft="@+id/textView9"
+        android:layout_alignStart="@+id/textView9" />
 
 
 
@@ -105,12 +120,12 @@
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView13"
-        android:layout_alignStart="@+id/textView13"
+        android:layout_marginTop="21dp"
+        android:text="Turbidity (UTF) :"
+        android:textSize="20sp"
         android:layout_below="@+id/pHMax"
-        android:layout_marginTop="22dp"
-        android:text="Turbidity Set :"
-        android:textSize="20sp" />
+        android:layout_alignLeft="@+id/textView13"
+        android:layout_alignStart="@+id/textView13" />
 
     <EditText
         android:id="@+id/TurMax"
@@ -147,21 +162,22 @@
         android:id="@+id/TextQS"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/SetBQ"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="24dp"
         android:text="TextView"
         android:textAlignment="center"
-        android:textSize="24sp" />
-
-    <Button
-        android:id="@+id/SetBQ"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="78dp"
-        android:text="Set"
-        android:layout_alignParentBottom="true"
+        android:textSize="24sp"
+        android:layout_marginBottom="46dp"
+        android:layout_above="@+id/SetBQ"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/ASetBQ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="53dp"
+        android:text="Auto Setting" />
 
 </RelativeLayout>

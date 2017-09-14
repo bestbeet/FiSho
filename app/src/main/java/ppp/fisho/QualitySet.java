@@ -1,6 +1,5 @@
 package ppp.fisho;
 
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -29,8 +28,8 @@ public class QualitySet extends Fragment {
 
     DatabaseReference Qset;
     EditText tmax, tmin, pHmax, pHmin, trmax, trmin;
-    Button status;
-    TextView tv;
+    Button ASet,Set;
+    TextView TextS;
 
 
     @Nullable
@@ -50,8 +49,9 @@ public class QualitySet extends Fragment {
         pHmin = (EditText) view.findViewById(R.id.pHMin);
         trmax = (EditText) view.findViewById(R.id.TurMax);
         trmin = (EditText) view.findViewById(R.id.TurMin);
-        tv = (TextView) view.findViewById(R.id.TextQS);
-        status = (Button) view.findViewById(R.id.SetBQ);
+        TextS = (TextView) view.findViewById(R.id.TextQS);
+        ASet = (Button) view.findViewById(R.id.ASetBQ);
+        Set = (Button) view.findViewById(R.id.SetBQ);
 
         Qset.addValueEventListener(new ValueEventListener() {
             @Override
@@ -59,14 +59,14 @@ public class QualitySet extends Fragment {
                 Map map = (Map) dataSnapshot.getValue();
                 String value = "Disable";
                 value = String.valueOf(map.get("Status"));
-                if (value.equals("Manual")) {
+                /*if (value.equals("Manual")) {
                     status.setText("Auto");
                     tv.setText("System : Manual");
                 }
                 if (value.equals("Auto")) {
                     status.setText("Manual");
                     tv.setText("System : Auto");
-                }
+                }*/
 
             }
 
@@ -75,7 +75,7 @@ public class QualitySet extends Fragment {
 
             }
         });
-        status.setOnClickListener(new View.OnClickListener() {
+        Set.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Qset.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -119,7 +119,7 @@ public class QualitySet extends Fragment {
                             Qset.updateChildren(value);
 
                         }
-                        if (val.equals("Manual")) {
+                        /*if (val.equals("Manual")) {
                             value.put("Status", "Auto");
                             value.put("TempH", 35);
                             value.put("TempL", 25);
@@ -128,7 +128,7 @@ public class QualitySet extends Fragment {
                             value.put("TurH", 50);
                             value.put("TurL", 10);
                             Qset.updateChildren(value);
-                        }
+                        }*/
                     }
 
                     @Override
