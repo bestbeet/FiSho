@@ -59,14 +59,12 @@ public class QualitySet extends Fragment {
                 Map map = (Map) dataSnapshot.getValue();
                 String value = "Disable";
                 value = String.valueOf(map.get("Status"));
-                /*if (value.equals("Manual")) {
-                    status.setText("Auto");
-                    tv.setText("System : Manual");
+                if (value.equals("Manual")) {
+                    TextS.setText("Status : Manual");
                 }
                 if (value.equals("Auto")) {
-                    status.setText("Manual");
-                    tv.setText("System : Auto");
-                }*/
+                    TextS.setText("Status : Auto");
+                }
 
             }
 
@@ -84,7 +82,7 @@ public class QualitySet extends Fragment {
                         Map<String, Object> value = new HashMap<String, Object>();
                         String val = dataSnapshot.child("Status").getValue(String.class);
 
-                        if (val.equals("Auto")) {
+                        if (val.equals("Manual") || val.equals("Auto")) {
                             value.put("Status", "Manual");
                             if (tmax.getText().toString().equals("")) {
                                 tmax.setError("Please enter High Temp");
@@ -119,7 +117,7 @@ public class QualitySet extends Fragment {
                             Qset.updateChildren(value);
 
                         }
-                        /*if (val.equals("Manual")) {
+                        /*if (val.equals("Manual") || val.equals("Auto")) {
                             value.put("Status", "Auto");
                             value.put("TempH", 35);
                             value.put("TempL", 25);
@@ -129,6 +127,34 @@ public class QualitySet extends Fragment {
                             value.put("TurL", 10);
                             Qset.updateChildren(value);
                         }*/
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+            }
+        });
+        ASet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Qset.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        Map<String, Object> value = new HashMap<String, Object>();
+                        String val = dataSnapshot.child("Status").getValue(String.class);
+
+                        if (val.equals("Manual") || val.equals("Auto")) {
+                            value.put("Status", "Auto");
+                            value.put("TempH", 35);
+                            value.put("TempL", 25);
+                            value.put("pHH", 9);
+                            value.put("pHL", 4);
+                            value.put("TurH", 50);
+                            value.put("TurL", 10);
+                            Qset.updateChildren(value);
+                        }
                     }
 
                     @Override
