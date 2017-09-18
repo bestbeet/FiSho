@@ -29,6 +29,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="Fish Online Monitoring"
+        android:textAlignment="center"
         android:textSize="30sp"
         android:textStyle="normal|bold" />
 

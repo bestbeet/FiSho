@@ -1,11 +1,9 @@
 package ppp.fisho;
 
-import android.app.NotificationManager;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.NotificationCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,12 +28,9 @@ import ppp.fisho.Notifications.Notification_ARpHLow;
 
 public class WaterQualityFragment extends Fragment {
 
-    private DatabaseReference myRef1, myRef2;
-    private TextView mFirebaseTextView1, mFirebaseTextView2;
-    private int notification_id = 001;
-    private NotificationCompat.Builder Builder;
-    private NotificationManager mNotifyMgr;
-
+    private DatabaseReference gvalue,gnoti;
+    private TextView watertemp, pH,turbidity;
+    public float fWt,fpH,fTur;
 
     @Nullable
     @Override
@@ -43,30 +38,62 @@ public class WaterQualityFragment extends Fragment {
         View view = inflater.inflate(R.layout.waterquality_layout, container, false);
         getActivity().setTitle("Water Quality");
         //getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        mFirebaseTextView1 = (TextView) view.findViewById(R.id.WtemptextView);
-        mFirebaseTextView2 = (TextView) view.findViewById(R.id.pHtextView);
+        watertemp = (TextView) view.findViewById(R.id.WtemptextView);
+        pH = (TextView) view.findViewById(R.id.pHtextView);
+        turbidity = (TextView) view.findViewById(R.id.TurbiditytextView);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         // TempWater
-        myRef1 = database.getReference("WaterQuality");
-        myRef1.keepSynced(true);
-        myRef1.orderByValue().limitToLast(1);
-        myRef1.addValueEventListener(new ValueEventListener() {
+        gvalue = database.getReference("WaterQuality");
+        gvalue.keepSynced(true);
+        gvalue.orderByValue().limitToLast(1);
+        gvalue.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Map map = (Map) dataSnapshot.getValue();
                 String valueWt = String.valueOf(map.get("Temp"));
                 String valuepH = String.valueOf(map.get("pH"));
+                String valueTur = String.valueOf(map.get("Turbidity"));
 
-                mFirebaseTextView1.setText("Temperature : " + valueWt + " °C");
-                mFirebaseTextView2.setText("pH : " + valuepH);
-// รอแก้ ให้ผู้ใช้ set ค่า
-                if (Float.parseFloat(valueWt) >= 32) {
+                // เก็บตัวแปรไว้เปรียบเทียบ
+                fWt = Float.parseFloat(valueWt);
+                fpH = Float.parseFloat(valuepH);
+                fTur = Float.parseFloat(valueTur);
+
+                watertemp.setText("Temperature : " + valueWt + " °C");
+                pH.setText("pH : " + valuepH);
+                turbidity.setText("Turbidity : "+ valueTur + " UTF");
+
+            }
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        //
+        gnoti = database.getReference("Setting");
+        gnoti.keepSynced(true);
+        gnoti.orderByValue().limitToLast(1);
+        gnoti.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Map map = (Map) dataSnapshot.getValue();
+                String valueTH = String.valueOf(map.get("TempH"));
+                String valueTL = String.valueOf(map.get("TempL"));
+                String valuepHH = String.valueOf(map.get("pHH"));
+                String valuepHL = String.valueOf(map.get("pHL"));
+                String valueTurH = String.valueOf(map.get("TurH"));
+                String valueTurL = String.valueOf(map.get("TurL"));
+
+                if (fWt >= Float.parseFloat(valueTH)) {
                     getActivity().startService(new Intent(getActivity(), Notification_ARWaterTemp.class));
                 } else {
                     getActivity().stopService(new Intent(getActivity(), Notification_ARWaterTemp.class));
                 }
-                if (Float.parseFloat(valuepH) >= 9) {
+                /*if (Float.parseFloat(valuepH) >= valueTL) {
                     getActivity().startService(new Intent(getActivity(), Notification_ARpHHigh.class));
                 } else {
                     getActivity().stopService(new Intent(getActivity(), Notification_ARpHHigh.class));
@@ -75,7 +102,7 @@ public class WaterQualityFragment extends Fragment {
                     getActivity().startService(new Intent(getActivity(), Notification_ARpHLow.class));
                 } else {
                     getActivity().stopService(new Intent(getActivity(), Notification_ARpHLow.class));
-                }
+                }*/
             }
 
             @Override

@@ -117,16 +117,6 @@ public class QualitySet extends Fragment {
                             Qset.updateChildren(value);
 
                         }
-                        /*if (val.equals("Manual") || val.equals("Auto")) {
-                            value.put("Status", "Auto");
-                            value.put("TempH", 35);
-                            value.put("TempL", 25);
-                            value.put("pHH", 9);
-                            value.put("pHL", 4);
-                            value.put("TurH", 50);
-                            value.put("TurL", 10);
-                            Qset.updateChildren(value);
-                        }*/
                     }
 
                     @Override
