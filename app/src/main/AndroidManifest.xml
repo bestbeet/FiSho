@@ -36,7 +36,10 @@
         </activity>
 
         <service
-            android:name=".Notifications.Notification_ARWaterTemp"
+            android:name=".Notifications.Notification_ARWaterTempHigh"
+            android:enabled="true" />
+        <service
+            android:name=".Notifications.Notification_ARWaterTempLow"
             android:enabled="true" />
         <service
             android:name=".Notifications.Notification_ARpHHigh"

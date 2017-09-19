@@ -18,9 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Map;
 
-import ppp.fisho.Notifications.Notification_ARWaterTemp;
-import ppp.fisho.Notifications.Notification_ARpHHigh;
-import ppp.fisho.Notifications.Notification_ARpHLow;
+import ppp.fisho.Notifications.Notification_ARWaterTempHigh;
 
 /**
  * Created by best on 29/3/2560.
@@ -89,9 +87,9 @@ public class WaterQualityFragment extends Fragment {
                 String valueTurL = String.valueOf(map.get("TurL"));
 
                 if (fWt >= Float.parseFloat(valueTH)) {
-                    getActivity().startService(new Intent(getActivity(), Notification_ARWaterTemp.class));
+                    getActivity().startService(new Intent(getActivity(), Notification_ARWaterTempHigh.class));
                 } else {
-                    getActivity().stopService(new Intent(getActivity(), Notification_ARWaterTemp.class));
+                    getActivity().stopService(new Intent(getActivity(), Notification_ARWaterTempHigh.class));
                 }
                 /*if (Float.parseFloat(valuepH) >= valueTL) {
                     getActivity().startService(new Intent(getActivity(), Notification_ARpHHigh.class));

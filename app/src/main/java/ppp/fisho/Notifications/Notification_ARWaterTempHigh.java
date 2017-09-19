@@ -20,7 +20,7 @@ import ppp.fisho.R;
  * Created by best on 10/9/2560.
  */
 
-public class Notification_ARWaterTemp extends Service {
+public class Notification_ARWaterTempHigh extends Service {
     private DatabaseReference myRef;
     private int notification_id;
     private NotificationCompat.Builder builder;
