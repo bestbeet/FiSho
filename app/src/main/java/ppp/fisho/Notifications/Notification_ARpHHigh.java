@@ -4,8 +4,13 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Vibrator;
+import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
@@ -26,6 +31,8 @@ public class Notification_ARpHHigh extends Service {
     private int notification_id;
     private NotificationCompat.Builder builder;
     private NotificationManager notificationManager;
+    private MediaPlayer player;
+    Vibrator v;
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -38,6 +45,8 @@ public class Notification_ARpHHigh extends Service {
 
         notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         builder = new NotificationCompat.Builder(this);
+        v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        final Handler handler = new Handler();
 
         notification_id = (int) System.currentTimeMillis();
 
@@ -51,6 +60,25 @@ public class Notification_ARpHHigh extends Service {
                 .setContentIntent(pendingIntent)
                 .setVibrate(new long[]{Notification.DEFAULT_VIBRATE})
                 .setPriority(Notification.PRIORITY_MAX);
+
+
+
+        player = MediaPlayer.create(this,
+                Settings.System.DEFAULT_RINGTONE_URI);
+        //setting loop play to true
+        //this will make the ringtone continuously playing
+        player.setLooping(true);
+        //staring the player
+        player.start();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Do something after 5s = 5000ms
+                player.stop();
+                v.vibrate(500);
+            }
+        }, 5000);
+
 
         notificationManager.notify(notification_id, builder.build());
 
