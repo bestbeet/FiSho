@@ -18,7 +18,11 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Map;
 
+import ppp.fisho.Notifications.Notification_ARTurbidityHigh;
+import ppp.fisho.Notifications.Notification_ARTurbidityLow;
 import ppp.fisho.Notifications.Notification_ARWaterTempHigh;
+import ppp.fisho.Notifications.Notification_ARWaterTempLow;
+import ppp.fisho.Notifications.Notification_ARpHHigh;
 
 /**
  * Created by best on 29/3/2560.
@@ -86,21 +90,42 @@ public class WaterQualityFragment extends Fragment {
                 String valueTurH = String.valueOf(map.get("TurH"));
                 String valueTurL = String.valueOf(map.get("TurL"));
 
+                ////////// Temp High //////////
                 if (fWt >= Float.parseFloat(valueTH)) {
                     getActivity().startService(new Intent(getActivity(), Notification_ARWaterTempHigh.class));
                 } else {
                     getActivity().stopService(new Intent(getActivity(), Notification_ARWaterTempHigh.class));
                 }
-                /*if (Float.parseFloat(valuepH) >= valueTL) {
+                ///////// Temp Low //////////
+                if (fWt <= Float.parseFloat(valueTL)) {
+                    getActivity().startService(new Intent(getActivity(), Notification_ARWaterTempLow.class));
+                } else {
+                    getActivity().stopService(new Intent(getActivity(), Notification_ARWaterTempLow.class));
+                }
+                ////////// pH High ///////////
+                if (fpH >= Float.parseFloat(valuepHH)) {
                     getActivity().startService(new Intent(getActivity(), Notification_ARpHHigh.class));
                 } else {
                     getActivity().stopService(new Intent(getActivity(), Notification_ARpHHigh.class));
                 }
-                if (Float.parseFloat(valueWt) <= 4) {
-                    getActivity().startService(new Intent(getActivity(), Notification_ARpHLow.class));
+                ////////// pH Low ///////////
+                if (fpH <= Float.parseFloat(valuepHL)) {
+                    getActivity().startService(new Intent(getActivity(), Notification_ARpHHigh.class));
                 } else {
-                    getActivity().stopService(new Intent(getActivity(), Notification_ARpHLow.class));
-                }*/
+                    getActivity().stopService(new Intent(getActivity(), Notification_ARpHHigh.class));
+                }
+                //////////// Turbidity High ///////////////////////
+                if (fTur >= Float.parseFloat(valueTurH)) {
+                    getActivity().startService(new Intent(getActivity(), Notification_ARTurbidityHigh.class));
+                } else {
+                    getActivity().stopService(new Intent(getActivity(), Notification_ARTurbidityHigh.class));
+                }
+                //////////// Turbidity Low ///////////////////////
+                if (fTur <= Float.parseFloat(valueTurL)) {
+                    getActivity().startService(new Intent(getActivity(), Notification_ARTurbidityLow.class));
+                } else {
+                    getActivity().stopService(new Intent(getActivity(), Notification_ARTurbidityLow.class));
+                }
             }
 
             @Override

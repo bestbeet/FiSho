@@ -131,6 +131,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             finish();
             System.exit(0);
             return true;
+        } else if (id == R.id.action_messenger){
+            finish();
+            System.exit(0);
+            return true;
         }
 
 

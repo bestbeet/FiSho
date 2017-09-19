@@ -48,6 +48,12 @@
             android:name=".Notifications.Notification_ARpHLow"
             android:enabled="true" />
         <service
+            android:name=".Notifications.Notification_ARTurbidityHigh"
+            android:enabled="true" />
+        <service
+            android:name=".Notifications.Notification_ARTurbidityLow"
+            android:enabled="true" />
+        <service
             android:name=".Service.Update"
             android:enabled="true" />
         <service
