@@ -22,6 +22,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.RemoteViews;
 
+import ppp.fisho.Chat.login.SplashActivity;
 import ppp.fisho.Service.ThingSpeakUpdate;
 
 
@@ -114,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 // ปุ่ม setting
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        /*if (id == R.id.action_settings) {
             Intent settings = new Intent(this, SettingsActivity.class);
             startActivity(settings);
             return true;
@@ -127,13 +128,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             drawer.closeDrawer(GravityCompat.START);
             return true;
-        } else if (id == R.id.action_exit) {
+        } else */
+        if (id == R.id.action_exit) {
             finish();
             System.exit(0);
             return true;
         } else if (id == R.id.action_messenger){
-            finish();
-            System.exit(0);
+            startActivity(new Intent(MainActivity.this, SplashActivity.class));
             return true;
         }
 

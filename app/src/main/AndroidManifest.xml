@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="ppp.fisho">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -61,15 +62,52 @@
             android:name=".Service.ThingSpeakUpdate"
             android:enabled="true" />
 
-        <activity android:name=".THGraph" />
-        <activity android:name=".RLGraph" />
-        <activity android:name=".SHMonitor" />
-        <activity android:name=".FLFragment" />
         <activity android:name=".statistic" />
-        <activity android:name=".AboutActivity" />
+
+
+
+        <activity android:name=".Chat.login.LoginActivity" />
+
         <activity
-            android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings" />
+            android:name=".Chat.home.MLoginActivity" />
+
+        <activity
+            android:name=".Chat.thread.ThreadActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name=".Chat.login.SplashActivity"
+            android:theme="@style/SplashTheme">
+        </activity>
+
+        <service
+            android:name=".Chat.fcm.InstanceIdService"
+            tools:ignore="ExportedService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".Chat.fcm.MessagingService"
+            tools:ignore="ExportedService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_message" />
+
+
+
+
+
     </application>
 
 </manifest>
