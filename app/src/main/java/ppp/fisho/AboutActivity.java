@@ -8,9 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * Created by best on 11/9/2560.
- */
+
 
 public class AboutActivity extends Fragment {
 
