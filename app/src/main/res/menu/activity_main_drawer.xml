@@ -23,11 +23,11 @@
             <item
                 android:id="@+id/nav_tank"
                 android:icon="@drawable/time"
-                android:title="Tank" />
+                android:title="Pond" />
             <item
                 android:id="@+id/nav_tankset"
                 android:icon="@drawable/settings"
-                android:title="Tank Set" />
+                android:title="Pond Set" />
             <item
                 android:id="@+id/nav_graph"
                 android:icon="@drawable/graph"

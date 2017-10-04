@@ -14,7 +14,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -28,6 +32,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Map;
 
 /**
  * Created by best on 29/3/2560.
@@ -35,8 +40,8 @@ import java.net.URISyntaxException;
 
 public class TankFragment extends Fragment {
 
-    private DatabaseReference myRef1;
-    private TextView mFirebaseTextView1, mFirebaseTextView2;
+    private DatabaseReference gpond;
+    private TextView WLevel,OS,PS;
 
 
     @Nullable
@@ -47,8 +52,34 @@ public class TankFragment extends Fragment {
         getActivity().setTitle("Tank");
 
 
-        mFirebaseTextView1 = (TextView) view.findViewById(R.id.WtemptextView);
-        mFirebaseTextView2 = (TextView) view.findViewById(R.id.pHtextView);
+        WLevel = (TextView) view.findViewById(R.id.WLevel);
+        OS = (TextView) view.findViewById(R.id.OxygenS);
+        PS = (TextView) view.findViewById(R.id.PumpS);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        // TempWater
+        gpond = database.getReference("Tank");
+        gpond.keepSynced(true);
+        gpond.orderByValue().limitToLast(1);
+        gpond.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Map map = (Map) dataSnapshot.getValue();
+                String valueWLevel = String.valueOf(map.get("WaterLevel"));
+                String valueOxygen = String.valueOf(map.get("Oxygen"));
+                String valuePump = String.valueOf(map.get("Pump"));
+
+                WLevel.setText("Water Level : " + valueWLevel);
+                OS.setText("Oxygen : " + valuePump);
+                PS.setText("Pump : " + valueOxygen);
+
+            }
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
 
 

@@ -59,6 +59,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "580045820927-71tcq0jsifrv9a122glbfbpjokm5g1ni.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ppp.fisho",
+            "certificate_hash": "dda90514f558521eff4657723b7fd2ec74ac7549"
+          }
+        },
+        {
           "client_id": "580045820927-2ag4ch91vm31ch0kn482s966ei9hk7h2.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
