@@ -25,11 +25,9 @@ public class TankSetFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tankset_layout, container, false);
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        getActivity().setTitle("Tank Set");
+        getActivity().setTitle("Pond Set");
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("Fertilization");
-        myRef.keepSynced(true);
-        myRef.orderByValue().limitToLast(1);
+
 
 
         return view;

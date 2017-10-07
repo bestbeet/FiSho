@@ -10,7 +10,7 @@
                 android:title="Water Quality" />
             <item
                 android:id="@+id/nav_qualityset"
-                android:icon="@drawable/aquarium"
+                android:icon="@drawable/qset"
                 android:title="Quality Set" />
             <item
                 android:id="@+id/nav_Intake"
@@ -26,7 +26,7 @@
                 android:title="Pond" />
             <item
                 android:id="@+id/nav_tankset"
-                android:icon="@drawable/settings"
+                android:icon="@drawable/pset"
                 android:title="Pond Set" />
             <item
                 android:id="@+id/nav_graph"
