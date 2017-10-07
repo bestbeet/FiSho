@@ -27,7 +27,7 @@ import java.util.Map;
 
 public class ThingSpeakUpdate extends Service {
     private RequestQueue requestQueue;
-    private DatabaseReference myRef;
+    private DatabaseReference thinkUp;
 
     @Nullable
     @Override
@@ -40,17 +40,18 @@ public class ThingSpeakUpdate extends Service {
         requestQueue = Volley.newRequestQueue(this);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("WaterQuality");
-        myRef.keepSynced(true);
-        myRef.orderByValue().limitToLast(1);
+        thinkUp = database.getReference("WaterQuality");
+        thinkUp.keepSynced(true);
+        thinkUp.orderByValue().limitToLast(1);
 
-        myRef.addValueEventListener(new ValueEventListener() {
+        thinkUp.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Map map = (Map) dataSnapshot.getValue();
-                String valueTemp = "0";
-                valueTemp = String.valueOf(map.get("Temp"));
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, "https://api.thingspeak.com/update?api_key=W986B2XBZA8GEZFQ&field2=" + valueTemp,
+                String valueTemp = String.valueOf(map.get("Temp"));
+                String valuepH = String.valueOf(map.get("pH"));
+                String valueTur = String.valueOf(map.get("Turbidity"));
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, "https://api.thingspeak.com/update?api_key=W986B2XBZA8GEZFQ&field1=" + valueTemp +"&field2=" + valuepH +"&field3=" +valueTur ,
 
                         new Response.Listener<JSONObject>() {
                             @Override
@@ -65,6 +66,7 @@ public class ThingSpeakUpdate extends Service {
                         }
                 );
                 requestQueue.add(jsonObjectRequest);
+
             }
 
             @Override

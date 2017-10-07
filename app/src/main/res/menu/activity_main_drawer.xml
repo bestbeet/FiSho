@@ -22,7 +22,7 @@
                 android:title="Feed Time" />
             <item
                 android:id="@+id/nav_tank"
-                android:icon="@drawable/time"
+                android:icon="@drawable/pond_icon"
                 android:title="Pond" />
             <item
                 android:id="@+id/nav_tankset"

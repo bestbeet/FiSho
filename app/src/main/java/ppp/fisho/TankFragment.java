@@ -49,7 +49,7 @@ public class TankFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.tank_layout,container, false);
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        getActivity().setTitle("Tank");
+        getActivity().setTitle("Pond");
 
 
         WLevel = (TextView) view.findViewById(R.id.WLevel);

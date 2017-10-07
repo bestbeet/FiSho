@@ -37,34 +37,33 @@
             android:id="@+id/PumpS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/WLevel"
-            android:layout_alignStart="@+id/WLevel"
-            android:layout_below="@+id/WLevel"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="21dp"
             android:fontFamily="cursive"
             android:text="Pump : Loading..."
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:layout_below="@+id/WLevel"
+            android:layout_alignLeft="@+id/WLevel"
+            android:layout_alignStart="@+id/WLevel" />
 
         <TextView
             android:id="@+id/OxygenS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/PumpS"
-            android:layout_alignStart="@+id/PumpS"
-            android:layout_below="@+id/PumpS"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="25dp"
             android:fontFamily="cursive"
             android:text="Oxygen : Loading..."
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:layout_below="@+id/PumpS"
+            android:layout_alignLeft="@+id/PumpS"
+            android:layout_alignStart="@+id/PumpS" />
 
         <ImageView
             android:id="@+id/imageView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:srcCompat="@drawable/pond"
             android:layout_below="@+id/pump_layout"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            app:srcCompat="@drawable/pond" />
+            android:layout_centerHorizontal="true" />
     </RelativeLayout>
 
 </LinearLayout>
