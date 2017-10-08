@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
-
         notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         builder = new NotificationCompat.Builder(this);
 
@@ -92,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             for (int i = 0; i < fm.getBackStackEntryCount(); ++i) {
                 fm.popBackStack();
             }
+
             setTitle("FiSho");
         }
 

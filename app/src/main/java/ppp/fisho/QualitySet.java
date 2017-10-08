@@ -137,11 +137,11 @@ public class QualitySet extends Fragment {
 
                         if (val.equals("Manual") || val.equals("Auto")) {
                             value.put("Status", "Auto");
-                            value.put("TempH", 35);
-                            value.put("TempL", 25);
-                            value.put("pHH", 9);
+                            value.put("TempH", 40);
+                            value.put("TempL", 20);
+                            value.put("pHH", 11);
                             value.put("pHL", 4);
-                            value.put("TurH", 50);
+                            value.put("TurH", 80);
                             value.put("TurL", 10);
                             Qset.updateChildren(value);
                         }

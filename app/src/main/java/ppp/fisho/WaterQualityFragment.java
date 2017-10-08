@@ -1,6 +1,7 @@
 package ppp.fisho;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -40,7 +41,7 @@ public class WaterQualityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.waterquality_layout, container, false);
         getActivity().setTitle("Water Quality");
-        //getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         watertemp = (TextView) view.findViewById(R.id.WtemptextView);
         pH = (TextView) view.findViewById(R.id.pHtextView);
         turbidity = (TextView) view.findViewById(R.id.TurbiditytextView);

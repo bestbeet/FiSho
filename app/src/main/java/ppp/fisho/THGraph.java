@@ -18,12 +18,13 @@ public class THGraph extends Fragment {
 
     WebView webView;
     SwipeRefreshLayout swipeRefreshLayout;
-    String html = "<iframe width=\"450\" height=\"260\" style=\"border: 1px solid #cccccc;\" src=\"https://thingspeak.com/channels/240769/charts/3?average=15&bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line\"></iframe>";
+    String html = "<iframe width=\"450\" height=\"260\" style=\"border: 1px solid #cccccc;\" src=\"https://thingspeak.com/apps/matlab_visualizations/168600\"></iframe>";
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.thgraph_layout, container , false);
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.graph);
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         getActivity().setTitle("Statistics");
         //getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         //imageView = (ImageView) view.findViewById(R.id.imageStat);

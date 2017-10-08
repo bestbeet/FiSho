@@ -17,14 +17,14 @@
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="15dp"
-                android:fontFamily="cursive"
+                android:layout_marginTop="35dp"
+                android:fontFamily="sans-serif"
                 android:text="Water Status"
                 android:textAlignment="center"
                 android:textSize="36sp"
-                android:textStyle="normal|bold" />
+                android:textStyle="normal|bold"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
 
             <TextView
                 android:id="@+id/WtemptextView"
@@ -34,7 +34,7 @@
                 android:layout_alignStart="@+id/TurbiditytextView"
                 android:layout_below="@+id/textView4"
                 android:layout_marginTop="26dp"
-                android:fontFamily="cursive"
+                android:fontFamily="sans-serif"
                 android:text="Temperature : Loading..."
                 android:textSize="24sp" />
 
@@ -46,7 +46,7 @@
                 android:layout_alignStart="@+id/WtemptextView"
                 android:layout_below="@+id/WtemptextView"
                 android:layout_marginTop="17dp"
-                android:fontFamily="cursive"
+                android:fontFamily="sans-serif"
                 android:text="pH : Loading..."
                 android:textSize="24sp" />
 
@@ -58,7 +58,7 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="cursive"
+                android:fontFamily="sans-serif"
                 android:text="Turbidity ( UTF ) : Loading..."
                 android:textSize="24sp" />
 
