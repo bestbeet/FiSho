@@ -28,8 +28,7 @@ public class FoodLevelFragment extends Fragment {
 
     private DatabaseReference gfood;
     private TextView FL;
-    private EditText SFL;
-    private Button BFL;
+
 
     @Nullable
     @Override
@@ -39,8 +38,6 @@ public class FoodLevelFragment extends Fragment {
         getActivity().setTitle("Food Level");
 
         FL = (TextView) view.findViewById(R.id.TFL);
-        SFL = (EditText) view.findViewById(R.id.TSFL);
-        BFL = (Button) view.findViewById(R.id.BSFL);
 
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -62,34 +59,6 @@ public class FoodLevelFragment extends Fragment {
 
             }
         });
-        BFL.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                gfood.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        Map<String, Object> value = new HashMap<String, Object>();
-                        if (SFL.getText().toString().equals("")) {
-                            SFL.setError("Please enter Food Level (cm)");
-                        } else {
-                            value.put("LevelSet", Float.parseFloat(SFL.getText().toString()));
-                        }
-                        gfood.updateChildren(value);
-
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
-            }
-        });
-
-
-
-
-
 
         return view;
     }
