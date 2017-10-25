@@ -49,8 +49,12 @@ public class FoodLevelFragment extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Map map = (Map) dataSnapshot.getValue();
                 String FoodLevel = String.valueOf(map.get("Level"));
-
-                FL.setText("Food Level : " + FoodLevel + "%");
+                if (FoodLevel.equals("Error") ) {
+                    FL.setText("Food Level : " + FoodLevel);
+                }
+                else {
+                    FL.setText("Food Level : " + FoodLevel + "%");
+                }
             }
 
 
