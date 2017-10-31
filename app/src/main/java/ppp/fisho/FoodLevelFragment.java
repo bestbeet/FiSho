@@ -7,8 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -17,7 +16,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -28,6 +26,7 @@ public class FoodLevelFragment extends Fragment {
 
     private DatabaseReference gfood;
     private TextView FL;
+    private ImageView PFL;
 
 
     @Nullable
@@ -38,6 +37,8 @@ public class FoodLevelFragment extends Fragment {
         getActivity().setTitle("Food Level");
 
         FL = (TextView) view.findViewById(R.id.TFL);
+        PFL = (ImageView) view.findViewById(R.id.FL);
+
 
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -51,10 +52,27 @@ public class FoodLevelFragment extends Fragment {
                 String FoodLevel = String.valueOf(map.get("Level"));
                 if (FoodLevel.equals("Error") ) {
                     FL.setText("Food Level : " + FoodLevel);
+                    PFL.setImageResource(R.drawable.food_er);
                 }
                 else {
                     FL.setText("Food Level : " + FoodLevel + "%");
+                    if(Integer.parseInt(FoodLevel) == 100){
+                        PFL.setImageResource(R.drawable.food_100);
+                    }
+                    else if(Integer.parseInt(FoodLevel) <= 75 && Integer.parseInt(FoodLevel) > 50 ){
+                        PFL.setImageResource(R.drawable.food_75);
+                    }
+                    else if(Integer.parseInt(FoodLevel) <= 50 && Integer.parseInt(FoodLevel) > 25 ){
+                        PFL.setImageResource(R.drawable.food_50);
+                    }
+                    else if(Integer.parseInt(FoodLevel) <= 25 && Integer.parseInt(FoodLevel) > 5 ){
+                        PFL.setImageResource(R.drawable.food_25);
+                    }
+                    else if(Integer.parseInt(FoodLevel) <= 5 && Integer.parseInt(FoodLevel) > 0 ){
+                        PFL.setImageResource(R.drawable.food_0);
+                    }
                 }
+
             }
 
 
