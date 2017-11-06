@@ -1,0 +1,109 @@
+package ppp.fisho.Notifications;
+
+/**
+ * Created by best on 7/11/2560.
+ */
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.Service;
+import android.content.Intent;
+import android.media.MediaPlayer;
+import android.os.IBinder;
+import android.support.annotation.Nullable;
+import android.support.v4.app.NotificationCompat;
+import android.util.Log;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import ppp.fisho.MainActivity;
+import ppp.fisho.R;
+
+public class Notification_AFood extends Service {
+    private DatabaseReference myRef;
+    private int notification_id;
+    private NotificationCompat.Builder builder;
+    private NotificationManager notificationManager;
+    private String secret;
+
+    private MediaPlayer player;
+
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        Log.e("MyActivity", "In the FirstPlant service");
+        return null;
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("AutoFertilization");
+        myRef.keepSynced(true);
+        myRef.orderByValue().limitToLast(1);
+
+        notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        builder = new NotificationCompat.Builder(this);
+
+        notification_id = (int) System.currentTimeMillis();
+
+        Intent notification_intent = new Intent(this, MainActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notification_intent, 0);
+        builder = new NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.icon_small)
+                .setContentTitle("Auto Fertilization")
+                .setContentText("System : Success")
+                .setAutoCancel(true)
+                .setContentIntent(pendingIntent)
+                .setVibrate(new long[]{Notification.DEFAULT_VIBRATE})
+                .setPriority(Notification.PRIORITY_MAX);
+
+
+        Map<String, Object> sec = new HashMap<String, Object>();
+        sec.put("Secret", "0");
+        myRef.updateChildren(sec);
+
+        //notificationManager.notify(notification_id, builder.build());
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Map<String, Object> value = new HashMap<String, Object>();
+                String notification = dataSnapshot.child("Notification").getValue(String.class);
+                String alert = dataSnapshot.child("Alert").getValue(String.class);
+                secret = dataSnapshot.child("Secret").getValue(String.class);
+                if (alert.equals("Enable") && secret.equals("0")) {
+                    value.put("Set1", "Enable");
+                    myRef.updateChildren(value);
+
+                }
+                if (notification.equals("Enable")) {
+                    notificationManager.notify(notification_id, builder.build());
+                    value.put("Secret", "1");
+                    myRef.updateChildren(value);
+                    //System.exit(0);
+                } else ;
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        return START_STICKY;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        //stopping the player when service is destroyed
+    }
+
+}

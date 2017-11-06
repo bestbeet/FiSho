@@ -4,84 +4,70 @@
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <EditText
+            android:id="@+id/minute"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/TimeFood"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:hint="feed in minute"
+            android:inputType="numberSigned"
+            android:textAlignment="center"
+            android:textAllCaps="true" />
+
+        <ToggleButton
+            android:id="@+id/set1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/minute"
+            android:checked="false"
+            android:text="ToggleButton"
+            android:textOff="Set 1"
+            android:textOn="Cancel" />
+
+        <Button
+            android:id="@+id/evening"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set 3"
+            android:layout_below="@+id/minute"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:id="@+id/afternoon"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:text="Set 2"
+            android:layout_below="@+id/minute"
+            android:layout_centerHorizontal="true" />
+
+        <TimePicker
+            android:id="@+id/TimeFood"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:headerBackground="@color/colorPrimary"
+            android:numbersSelectorColor="@android:color/holo_blue_dark" />
+
+    </RelativeLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
-
-            <EditText
-                android:id="@+id/minute"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/timePicker"
-                android:layout_marginTop="15dp"
-                android:ems="10"
-                android:hint="feed in minute"
-                android:inputType="numberSigned"
-                android:textAlignment="center"
-                android:textAllCaps="true" />
-
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/evening"
-                android:layout_alignBottom="@+id/evening"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_toEndOf="@+id/evening"
-                android:layout_toRightOf="@+id/evening"
-                android:text="Set 3" />
-
-            <Button
-                android:id="@+id/button7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/morning"
-                android:layout_marginTop="23dp"
-                android:text="Auto" />
-
-            <Button
-                android:id="@+id/evening"
-                android:layout_width="125dp"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/morning"
-                android:layout_alignBottom="@+id/morning"
-                android:layout_centerHorizontal="true"
-                android:text="Set 2" />
-
-            <TimePicker
-                android:id="@+id/timePicker"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
-                android:headerBackground="@color/colorPrimary"
-                android:numbersSelectorColor="@android:color/holo_blue_dark" />
-
-            <Button
-                android:id="@+id/morning"
-                android:layout_width="123dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/minute"
-                android:layout_marginTop="14dp"
-                android:layout_toLeftOf="@+id/evening"
-                android:layout_toStartOf="@+id/evening"
-                android:text="Set 1" />
-        </RelativeLayout>
     </ScrollView>
 
 

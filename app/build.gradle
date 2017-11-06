@@ -6,7 +6,7 @@ android {
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "ppp.fisho"
-        minSdkVersion 15
+        minSdkVersion 19
         multiDexEnabled true
         targetSdkVersion 25
         versionCode 2
