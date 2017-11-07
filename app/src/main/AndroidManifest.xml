@@ -56,11 +56,16 @@
             android:name=".Notifications.Notification_ARTurbidityLow"
             android:enabled="true" />
         <service
+            android:name=".Notifications.Notification_AFood"
+            android:enabled="true" />
+        <service
             android:name=".Service.Update"
             android:enabled="true" />
         <service
             android:name=".Service.ThingSpeakUpdate"
             android:enabled="true" />
+
+        <receiver android:name=".Service.AlarmReceiver" />
 
         <activity android:name=".statistic" />
 

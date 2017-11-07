@@ -33,8 +33,6 @@ public class Notification_AFood extends Service {
     private NotificationManager notificationManager;
     private String secret;
 
-    private MediaPlayer player;
-
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -46,7 +44,7 @@ public class Notification_AFood extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("AutoFertilization");
+        myRef = database.getReference("FeedSet");
         myRef.keepSynced(true);
         myRef.orderByValue().limitToLast(1);
 
@@ -59,7 +57,7 @@ public class Notification_AFood extends Service {
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notification_intent, 0);
         builder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.icon_small)
-                .setContentTitle("Auto Fertilization")
+                .setContentTitle("Auto Feed")
                 .setContentText("System : Success")
                 .setAutoCancel(true)
                 .setContentIntent(pendingIntent)
@@ -77,10 +75,12 @@ public class Notification_AFood extends Service {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Map<String, Object> value = new HashMap<String, Object>();
                 String notification = dataSnapshot.child("Notification").getValue(String.class);
-                String alert = dataSnapshot.child("Alert").getValue(String.class);
+                String alert1 = dataSnapshot.child("Alert1").getValue(String.class);
+                String alert2 = dataSnapshot.child("Alert2").getValue(String.class);
+                String alert3 = dataSnapshot.child("Alert3").getValue(String.class);
                 secret = dataSnapshot.child("Secret").getValue(String.class);
-                if (alert.equals("Enable") && secret.equals("0")) {
-                    value.put("Set1", "Enable");
+                if ((alert1.equals("Enable")||(alert2.equals("Enable"))) && secret.equals("0")) {
+                    value.put("Status", "Enable");
                     myRef.updateChildren(value);
 
                 }

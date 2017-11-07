@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white">
@@ -11,46 +11,56 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
+        <TextView
+            android:id="@+id/TextViewSetTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/TimeFood"
+            android:layout_marginTop="44dp"
+            android:text="System : Loading..."
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
         <EditText
             android:id="@+id/minute"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/TimeFood"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="70dp"
             android:ems="10"
             android:hint="feed in minute"
             android:inputType="numberSigned"
             android:textAlignment="center"
-            android:textAllCaps="true" />
-
-        <ToggleButton
-            android:id="@+id/set1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/minute"
-            android:checked="false"
-            android:text="ToggleButton"
-            android:textOff="Set 1"
-            android:textOn="Cancel" />
+            android:textAllCaps="true"
+            android:layout_below="@+id/TimeFood"
+            android:layout_alignParentStart="true" />
 
         <Button
-            android:id="@+id/evening"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Set 3"
-            android:layout_below="@+id/minute"
-            android:layout_alignParentEnd="true" />
-
-        <Button
-            android:id="@+id/afternoon"
+            android:id="@+id/start2"
             android:layout_width="125dp"
             android:layout_height="wrap_content"
-            android:text="Set 2"
             android:layout_below="@+id/minute"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="13dp"
+            android:text="Set 2" />
+
+        <Button
+            android:id="@+id/start1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/start2"
+            android:layout_alignBottom="@+id/start2"
+            android:layout_toStartOf="@+id/start2"
+            android:text="Set 1" />
+
+        <Button
+            android:id="@+id/start3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/start2"
+            android:layout_alignBottom="@+id/start2"
+            android:layout_toEndOf="@+id/start2"
+            android:text="Set 3" />
 
         <TimePicker
             android:id="@+id/TimeFood"
@@ -62,13 +72,17 @@
             android:headerBackground="@color/colorPrimary"
             android:numbersSelectorColor="@android:color/holo_blue_dark" />
 
+        <Button
+            android:id="@+id/stop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/start2"
+            android:layout_marginTop="10dp"
+            android:text="Cancel" />
+
+
     </RelativeLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-    </ScrollView>
-
-
-</LinearLayout>
+</ScrollView>
