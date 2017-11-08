@@ -10,6 +10,20 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/pump_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="11dp"
+            android:fontFamily="cursive"
+            android:text="Pond"
+            android:textAlignment="center"
+            android:textSize="46sp"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/PumpSIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -20,20 +34,6 @@
             android:layout_below="@+id/WLevel"
             android:layout_alignLeft="@+id/WLevel"
             android:layout_alignStart="@+id/WLevel" />
-
-        <TextView
-            android:id="@+id/pump_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="11dp"
-            android:fontFamily="sans-serif"
-            android:text="Pond"
-            android:textAlignment="center"
-            android:textSize="36sp"
-            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/WLevel"

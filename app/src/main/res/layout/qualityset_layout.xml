@@ -14,6 +14,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="12dp"
+        android:background="@android:color/holo_green_light"
         android:text="Manual Setting" />
 
     <TextView
@@ -174,10 +175,11 @@
         android:id="@+id/ASetBQ"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="37dp"
-        android:text="Auto Setting"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="37dp"
+        android:background="@color/colorRed"
+        android:text="Auto Setting" />
 
 </RelativeLayout>
