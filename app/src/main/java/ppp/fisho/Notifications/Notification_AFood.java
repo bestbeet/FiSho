@@ -79,7 +79,7 @@ public class Notification_AFood extends Service {
                 String alert2 = dataSnapshot.child("Alert2").getValue(String.class);
                 String alert3 = dataSnapshot.child("Alert3").getValue(String.class);
                 secret = dataSnapshot.child("Secret").getValue(String.class);
-                if ((alert1.equals("Enable")||(alert2.equals("Enable"))) && secret.equals("0")) {
+                if ((alert1.equals("Enable")||(alert2.equals("Enable")) || alert3.equals("Enable")) && secret.equals("0")) {
                     value.put("Status", "Enable");
                     myRef.updateChildren(value);
 

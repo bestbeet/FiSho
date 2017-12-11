@@ -56,19 +56,19 @@ public class FoodLevelFragment extends Fragment {
                 }
                 else {
                     FL.setText("Food Level : " + FoodLevel + "%");
-                    if(Integer.parseInt(FoodLevel) == 100){
+                    if(Float.parseFloat(FoodLevel) == 100){
                         PFL.setImageResource(R.drawable.food_100);
                     }
-                    else if(Integer.parseInt(FoodLevel) <= 75 && Integer.parseInt(FoodLevel) > 50 ){
+                    else if(Float.parseFloat(FoodLevel) <= 75 && Float.parseFloat(FoodLevel) > 50 ){
                         PFL.setImageResource(R.drawable.food_75);
                     }
-                    else if(Integer.parseInt(FoodLevel) <= 50 && Integer.parseInt(FoodLevel) > 25 ){
+                    else if(Float.parseFloat(FoodLevel) <= 50 && Float.parseFloat(FoodLevel) > 25 ){
                         PFL.setImageResource(R.drawable.food_50);
                     }
-                    else if(Integer.parseInt(FoodLevel) <= 25 && Integer.parseInt(FoodLevel) > 5 ){
+                    else if(Float.parseFloat(FoodLevel) <= 25 && Float.parseFloat(FoodLevel) > 5 ){
                         PFL.setImageResource(R.drawable.food_25);
                     }
-                    else if(Integer.parseInt(FoodLevel) <= 5 && Integer.parseInt(FoodLevel) > 0 ){
+                    else if(Float.parseFloat(FoodLevel) <= 5 && Float.parseFloat(FoodLevel) > 0 ){
                         PFL.setImageResource(R.drawable.food_0);
                     }
                 }

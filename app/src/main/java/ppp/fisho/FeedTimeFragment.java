@@ -234,6 +234,8 @@ public class FeedTimeFragment extends Fragment {
                         value.put("Secret", "0");
                         value.put("Alert1", "Disable");
                         value.put("Alert2", "Disable");
+                        value.put("Alert3", "Disable");
+                        //value.put("Status", "Disable");
                         time.updateChildren(value);
 
                     }
