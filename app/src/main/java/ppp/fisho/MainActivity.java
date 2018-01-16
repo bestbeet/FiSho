@@ -161,9 +161,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragment = new TankFragment();
         } else if (id == R.id.nav_tankset) {
             fragment = new SettingFragment();
-        } else if (id == R.id.nav_graph) {
+        } /*else if (id == R.id.nav_graph) {
             fragment = new THGraph();
-        }
+        }*/
 
 
         FragmentManager fragmentManager = getSupportFragmentManager();

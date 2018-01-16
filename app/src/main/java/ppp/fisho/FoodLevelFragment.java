@@ -1,7 +1,9 @@
 package ppp.fisho;
 
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -40,9 +42,10 @@ public class FoodLevelFragment extends Fragment {
         PFL = (ImageView) view.findViewById(R.id.FL);
 
 
-
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String icd = prefs.getString("IDC", "");
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        gfood = database.getReference("FoodLevel");
+        gfood = database.getReference(icd).child("FoodLevel");
         gfood.keepSynced(true);
         gfood.orderByValue().limitToLast(1);
         gfood.addValueEventListener(new ValueEventListener() {

@@ -28,10 +28,7 @@
                 android:id="@+id/nav_tankset"
                 android:icon="@drawable/pset"
                 android:title="Setting" />
-            <item
-                android:id="@+id/nav_graph"
-                android:icon="@drawable/graph"
-                android:title="Graph" />
+
 
         </menu>
     </item>

@@ -1,7 +1,9 @@
 package ppp.fisho;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -45,10 +47,11 @@ public class WaterQualityFragment extends Fragment {
         watertemp = (TextView) view.findViewById(R.id.WtemptextView);
         pH = (TextView) view.findViewById(R.id.pHtextView);
         turbidity = (TextView) view.findViewById(R.id.TurbiditytextView);
-
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String icd = prefs.getString("IDC", "");
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         // TempWater
-        gvalue = database.getReference("WaterQuality");
+        gvalue = database.getReference(icd).child("WaterQuality");
         gvalue.keepSynced(true);
         gvalue.orderByValue().limitToLast(1);
         gvalue.addValueEventListener(new ValueEventListener() {
