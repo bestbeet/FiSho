@@ -112,4 +112,15 @@
     <string name="SignOut">Sign out</string>
 
 
+    <string name="OK">OK</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Reset">Reset</string>
+    <string name="Change_ID">Change ID</string>
+    <string name="Current_ID">Current ID</string>
+    <string name="Set1">Set time 1</string>
+    <string name="Set2">Set time 2</string>
+    <string name="Yes">Yes</string>
+    <string name="No">No</string>
+    <string name="Settings">Settings</string>
+
 </resources>

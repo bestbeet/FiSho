@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_tank) {
             fragment = new TankFragment();
         } else if (id == R.id.nav_tankset) {
-            fragment = new SettingFragment();
+            fragment = new Setting();
         }
 
 
