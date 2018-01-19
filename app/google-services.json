@@ -8,50 +8,6 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:580045820927:android:582acd74d115773b",
-        "android_client_info": {
-          "package_name": "app.testfish"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "580045820927-vearu5qicdo6mmk902ihv9giimnohc6t.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "app.testfish",
-            "certificate_hash": "9669f9b1c9cd1557369b22384c0b9a902406b80d"
-          }
-        },
-        {
-          "client_id": "580045820927-t1667i44028rqijk3d2gmpd1pt29krkp.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDbolQFDETUVIVrKEJp_BTOPwI4AvUvB9g"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "580045820927-t1667i44028rqijk3d2gmpd1pt29krkp.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:580045820927:android:1353beb542ee2466",
         "android_client_info": {
           "package_name": "ppp.fisho"

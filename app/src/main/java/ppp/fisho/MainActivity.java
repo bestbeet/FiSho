@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             System.exit(0);
             return true;
         } else if (id == R.id.action_messenger){
-            startActivity(new Intent(MainActivity.this, SplashActivity.class));
+            startActivity(new Intent(MainActivity.this, MainChat.class));
             return true;
         }
 
@@ -161,9 +161,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragment = new TankFragment();
         } else if (id == R.id.nav_tankset) {
             fragment = new SettingFragment();
-        } /*else if (id == R.id.nav_graph) {
-            fragment = new THGraph();
-        }*/
+        }
 
 
         FragmentManager fragmentManager = getSupportFragmentManager();

@@ -12,6 +12,8 @@ import org.apache.commons.io.IOUtils;
 import java.io.IOException;
 import java.io.InputStream;
 
+import ppp.fisho.ui.LoginActivity;
+
 public class SplashScreen extends AppCompatActivity{
     private GifImageView gifImageView;
     private static int SPLASH_TIME_OUT = 3000;
@@ -37,8 +39,9 @@ public class SplashScreen extends AppCompatActivity{
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                SplashScreen.this.startActivity(new Intent(SplashScreen.this,MainActivity.class));
-                SplashScreen.this.finish();
+                Intent mainIntent = new Intent(SplashScreen.this, LoginActivity.class);
+                startActivity(mainIntent);
+                finish();
             }
         },SPLASH_TIME_OUT);
 

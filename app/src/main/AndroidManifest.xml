@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SplashScreen"
+            android:name="ppp.fisho.SplashScreen"
             android:label="FiSho"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -29,11 +29,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="ppp.fisho.MainActivity"
             android:label="FiSho"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
@@ -70,46 +70,38 @@
         <activity android:name=".statistic" />
 
 
-
-        <activity android:name=".Chat.login.LoginActivity" />
-
         <activity
-            android:name=".Chat.home.MLoginActivity" />
-
+            android:name="ppp.fisho.ui.RegisterActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Translucent" />
         <activity
-            android:name=".Chat.thread.ThreadActivity"
-            android:windowSoftInputMode="adjustResize|stateHidden" />
-
+            android:name="ppp.fisho.ui.ChatActivity"
+            android:parentActivityName="project.firstplant.MainChat"
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".Chat.login.SplashActivity"
-            android:theme="@style/SplashTheme">
+            android:name="ppp.fisho.ui.AddGroupActivity"
+            android:theme="@style/AppTheme1.NoActionBar" />
+        <service
+            android:name="ppp.fisho.Service.FriendChatService"
+            android:exported="false"
+            android:persistent="true" />
+        <activity
+            android:name="ppp.fisho.MainChat"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme1.NoActionBar"/>
+        <activity
+            android:name="ppp.fisho.ui.LoginActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/TranslucentBackground">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+            </intent-filter>
         </activity>
-
-        <service
-            android:name=".Chat.fcm.InstanceIdService"
-            tools:ignore="ExportedService">
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-            </intent-filter>
-        </service>
-
-        <service
-            android:name=".Chat.fcm.MessagingService"
-            tools:ignore="ExportedService">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
-
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_color"
-            android:resource="@color/colorAccent" />
-
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/ic_message" />
-
-
 
 
 
