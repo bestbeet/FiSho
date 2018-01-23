@@ -3,8 +3,10 @@ package ppp.fisho;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -58,8 +60,11 @@ public class FeedTimeFragment extends Fragment {
         tv = (TextView) view.findViewById(R.id.TextViewSetTime);
         getActivity().setTitle("Feed Time");
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        time = database.getReference("FeedSet");
+        String icd = prefs.getString("IDC", "");
+
+        time = database.getReference(icd).child("FeedSet");
         time.keepSynced(true);
         time.orderByValue().limitToLast(1);
         final Intent myIntent = new Intent(getActivity(), AlarmReceiver.class);

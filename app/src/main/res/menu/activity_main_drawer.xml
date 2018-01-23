@@ -25,8 +25,12 @@
                 android:icon="@drawable/pond_icon"
                 android:title="Pond" />
             <item
-                android:id="@+id/nav_tankset"
-                android:icon="@drawable/pset"
+            android:id="@+id/nav_tankset"
+            android:icon="@drawable/pset"
+            android:title="Pond Set" />
+            <item
+                android:id="@+id/nav_setting"
+                android:icon="@drawable/settings"
                 android:title="Setting" />
 
 

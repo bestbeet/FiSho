@@ -1,7 +1,9 @@
 package ppp.fisho;
 
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -39,8 +41,11 @@ public class QualitySet extends Fragment {
         getActivity().setTitle("Quality Set");
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        Qset = database.getReference("Setting");
+        String icd = prefs.getString("IDC", "");
+
+        Qset = database.getReference(icd).child("Setting");
         Qset.keepSynced(true);
         Qset.orderByValue().limitToLast(1);
         tmax = (EditText) view.findViewById(R.id.TempMax);
