@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -29,6 +30,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import ppp.fisho.MainActivity;
+import ppp.fisho.MainChat;
 import ppp.fisho.R;
 import ppp.fisho.data.SharedPreferenceHelper;
 import ppp.fisho.data.StaticConfig;
@@ -72,10 +75,12 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
             bitmapAvataUser = null;
         }
 
+
         editWriteMessage = (EditText) findViewById(R.id.editWriteMessage);
         if (idFriend != null && nameFriend != null) {
             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
             setSupportActionBar(toolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setTitle(nameFriend);
             linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
             recyclerChat = (RecyclerView) findViewById(R.id.recyclerChat);
